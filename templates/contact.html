@@ -1,20 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero-wrap hero-wrap-2" data-stellar-background-ratio="0.5"
+         style="background-image: url('../static/images/bg_3.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+            <div class="col-md-9 ftco-animate mb-5 text-center">
+                <h1 class="mb-3 bread">Contact Us</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'home' %}">Home <i
+                        class="fa fa-chevron-right"></i></a></span> <span>Contact <i
+                        class="fa fa-chevron-right"></i></span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="ftco-appointment ftco-section ftco-no-pt ftco-no-pb img"
          style="background-image: url(../static/images/bg_2.jpg);">
     <div class="overlay"></div>
     <div class="container">
         <div class="row d-md-flex justify-content-end">
             <div class="col-md-12 col-lg-6 half p-3 py-5 pl-lg-5 ftco-animate">
-                <h2 class="mb-4">Send a Message &amp; Get in touch!</h2>
-                <form action="#" class="appointment">
+                <h2 class="mb-4">Send a Message &amp; Get in touch! - {{ Your_Name }} </h2>
+                <form action="{% url 'contact' %}" method="Post" class="appointment">
+                {% csrf_token %}
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input class="form-control" placeholder="Your Name" type="text">
+                                <input class="form-control" name="Your-Name" placeholder="Your Name" type="text">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input class="form-control" placeholder="Email" type="text">
+                                <input class="form-control" name="Email"  placeholder="Email" type="text">
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -22,7 +42,7 @@
                                 <div class="form-field">
                                     <div class="select-wrap">
                                         <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                        <select class="form-control" id="" name="">
+                                        <select class="form-control" id="" name="Option">
                                             <option value="">IT4GH</option>
                                             <option value="">TECHNEG INCUBATOR</option>
                                             <option value="">MENTORSHIP</option>
@@ -34,7 +54,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <textarea class="form-control" cols="30" id="" name="" placeholder="Message"
+                                <textarea class="form-control" cols="30" id="" name="Message" placeholder="Message"
                                           rows="7"></textarea>
                             </div>
                         </div>
@@ -49,3 +69,5 @@
         </div>
     </div>
 </section>
+
+{% endblock content %}

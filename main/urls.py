@@ -12,4 +12,5 @@ urlpatterns = [
     path('main/incubate', views.incubate, name='incubate'),
     path('main/it4gh', views.it4gh, name='it4gh'),
     path('main/ccoc', views.ccoc, name='ccoc'),
+    path('main/contact', views.contact, name='contact'),
 ]
